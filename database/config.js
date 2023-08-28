@@ -2,13 +2,10 @@ const mongoose = require("mongoose");
 
 const dbConnection = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://ricardocg21:D0aKK9BKH0NASehN@cluster0.jiqddhz.mongodb.net/test",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(process.env.MONGODB_CNN, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     console.log("Base de datos online");
   } catch (error) {
